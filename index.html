@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>TEEJAYS - Premium Bespoke Tailoring</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Master Tailor offers premium bespoke tailoring services with precision craftsmanship and the finest fabrics">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Master Tailor">
+    <meta property="og:description" content="Premium bespoke tailoring with precision craftsmanship">
+    <meta property="og:image" content="https://yourdomain.com/img/social-preview.jpg">
+    <meta property="og:url" content="https://yourdomain.com">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+    
+    <!-- Modern Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Modern CSS Libraries -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/2.7.1/css/lightgallery.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #c19a6b; /* Changed to gold/brown for tailoring */
+            --accent-color: #3498db;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+            --text-color: #333;
+            --text-light: #6c757d;
+            --transition: all 0.3s ease;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+        
+        /* Modern Navigation */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 30px rgba(0, 0, 0, 0.1);
+            padding: 1rem 2rem;
+            transition: var(--transition);
+        }
+        
+        .navbar.scrolled {
+            padding: 0.5rem 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-link {
+            color: var(--dark-color);
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            margin: 0 0.25rem;
+            position: relative;
+            transition: var(--transition);
+        }
+        
+        .nav-link:before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary-color);
+            transition: var(--transition);
+        }
+        
+        .nav-link:hover:before {
+            width: 100%;
+        }
+        
+        .nav-link.active {
+            color: var(--secondary-color);
+        }
+        
+        .nav-link i {
+            margin-right: 8px;
+            font-size: 1.1rem;
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            height: 100vh;
+            min-height: 700px;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('img/tailor-hero.jpg') no-repeat center center;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            z-index: 2;
+            color: white;
+        }
+        
+        .hero-title {
+            font-size: 4.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Feature Cards */
+        .feature-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2.5rem;
+            height: 100%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Gallery Section */
+        .gallery-item {
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .gallery-item img {
+            transition: var(--transition);
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            color: white;
+            padding: 1.5rem;
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .gallery-item:hover .gallery-caption {
+            opacity: 1;
+        }
+        
+        /* Service Cards */
+        .service-card {
+            border: none;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+            text-align: center;
+            height: 100%;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin: 1.5rem 0;
+        }
+        
+        /* Contact Form */
+        .contact-form .form-control {
+            border-radius: 8px;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-form .form-control:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 0.25rem rgba(52, 152, 219, 0.25);
+        }
+        
+        /* Fabric Swatches */
+        .fabric-swatch {
+            width: 100%;
+            height: 120px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            transition: var(--transition);
+            cursor: pointer;
+            border: 3px solid transparent;
+        }
+        
+        .fabric-swatch:hover {
+            transform: scale(1.05);
+        }
+        
+        .fabric-swatch.active {
+            border-color: var(--secondary-color);
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 3rem 0;
+        }
+        
+        .footer a {
+            color: var(--light-color);
+            transition: var(--transition);
+        }
+        
+        .footer a:hover {
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+        
+        .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            margin-right: 10px;
+            transition: var(--transition);
+        }
+        
+        .social-icons a:hover {
+            background: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+        
+        /* Section Titles */
+        .section-title {
+            position: relative;
+            margin-bottom: 3rem;
+            padding-bottom: 1rem;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--secondary-color);
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--secondary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background: var(--primary-color);
+            transform: translateY(-5px);
+        }
+        
+        /* Price Tag */
+        .price-tag {
+            background: var(--secondary-color);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        /* Quick Links Section */
+        .quick-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .quick-links a {
+            display: inline-block;
+            padding: 8px 0;
+            color: var(--primary-color);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .quick-links a:hover {
+            color: var(--secondary-color);
+            transform: translateX(5px);
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 3.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            
+            .navbar {
+                padding: 0.75rem 1rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="img/logo.png" alt="Master Tailor" height="40">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home"><i class="fas fa-home"></i> Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about"><i class="fas fa-info-circle"></i> About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services"><i class="fas fa-tshirt"></i> Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#fabrics"><i class="fas fa-cut"></i> Fabrics</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#gallery"><i class="fas fa-images"></i> Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+        <div class="container">
+            <div class="hero-content animate__animated animate__fadeIn">
+                <h1 class="hero-title">TEEJAYS</h1>
+                <p class="hero-subtitle">Precision craftsmanship meets timeless elegance in every stitch. Experience bespoke tailoring at its finest.</p>
+                <div class="d-flex gap-3">
+                    <a href="#services" class="btn btn-primary btn-lg px-4 py-3">Our Services</a>
+                    <a href="#contact" class="btn btn-outline-light btn-lg px-4 py-3">Book Appointment</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-5 bg-light" id="about">
+        <div class="container py-5">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <img src="img/tailor-about.jpg" alt="Master Tailor" class="img-fluid rounded shadow">
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="section-title">About TEEJAYS</h2>
+                    <p class="lead">With over 35 years of experience in the art of tailoring, TEEJAYS combines traditional techniques with modern precision to create garments that fit perfectly and stand the test of time.</p>
+                    <p>Founded in 1993 by Master Tailor Muhammad Rafi, our atelier has dressed generations of discerning clients who appreciate the difference that true craftsmanship makes. Each garment is meticulously handcrafted to your exact measurements and personal style.</p>
+                    <p>We source only the finest fabrics from renowned mills around the world, ensuring your clothing not only looks exceptional but feels extraordinary to wear.</p>
+                    <a href="#services" class="btn btn-primary mt-3">Explore Our Services</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="py-5" id="services">
+        <div class="container py-5">
+            <h2 class="text-center section-title">Our Tailoring Services</h2>
+            <p class="text-center mb-5 lead">Custom clothing crafted to perfection for every occasion</p>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="feature-card animate__animated animate__fadeInUp">
+                        <div class="feature-icon">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <h3>Bespoke Suits</h3>
+                        <p>Handcrafted suits made from over 200 measurements for the perfect fit. Choose from premium wools, linens, and cashmeres.</p>
+                        <div class="price-tag">From $800</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card animate__animated animate__fadeInUp" style="animation-delay: 0.2s">
+                        <div class="feature-icon">
+                            <i class="fas fa-tshirt"></i>
+                        </div>
+                        <h3>Custom Shirts</h3>
+                        <p>Individually tailored shirts with your choice of collar, cuff, and fabric. Perfect for business or casual wear.</p>
+                        <div class="price-tag">From $150</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card animate__animated animate__fadeInUp" style="animation-delay: 0.4s">
+                        <div class="feature-icon">
+                            <i class="fas fa-vest"></i>
+                        </div>
+                        <h3>Traditional Wear</h3>
+                        <p>Exquisitely tailored sherwanis, kurtas, and waistcoats for weddings and special occasions.</p>
+                        <div class="price-tag">From $300</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card animate__animated animate__fadeInUp">
+                        <div class="feature-icon">
+                            <i class="fas fa-female"></i>
+                        </div>
+                        <h3>Women's Tailoring</h3>
+                        <p>Bespoke dresses, blouses, and suits designed to flatter your figure and personal style.</p>
+                        <div class="price-tag">From $250</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card animate__animated animate__fadeInUp" style="animation-delay: 0.2s">
+                        <div class="feature-icon">
+                            <i class="fas fa-magic"></i>
+                        </div>
+                        <h3>Alterations</h3>
+                        <p>Professional alterations to make your existing wardrobe fit perfectly. We work with all garment types.</p>
+                        <div class="price-tag">From $30</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card animate__animated animate__fadeInUp" style="animation-delay: 0.4s">
+                        <div class="feature-icon">
+                            <i class="fas fa-umbrella"></i>
+                        </div>
+                        <h3>Accessories</h3>
+                        <p>Complete your look with custom ties, pocket squares, and other accessories to match your outfits.</p>
+                        <div class="price-tag">From $50</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fabrics Section -->
+    <section class="py-5 bg-light" id="fabrics">
+        <div class="container py-5">
+            <h2 class="text-center section-title">Premium Fabric Selection</h2>
+            <p class="text-center mb-5 lead">Choose from our curated collection of the world's finest textiles</p>
+            
+            <div class="row">
+                <div class="col-lg-6 mb-5">
+                    <h3 class="mb-4">Our Fabric Collections</h3>
+                    <p>We source fabrics from the most prestigious mills in Italy, England, and Japan. Each season, we carefully select new additions to our collection based on quality, durability, and aesthetic appeal.</p>
+                    <p>Our expert tailors will guide you in selecting the perfect fabric for your garment, considering factors like seasonality, occasion, and personal style preferences.</p>
+                    
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <h5><i class="fas fa-check-circle text-success me-2"></i> Wool & Cashmere</h5>
+                            <p>Premium wools for year-round comfort and luxury cashmeres for winter elegance.</p>
+                        </div>
+                        <div class="col-md-6">
+                            <h5><i class="fas fa-check-circle text-success me-2"></i> Linen & Cotton</h5>
+                            <p>Breathable natural fabrics perfect for warm weather and casual occasions.</p>
+                        </div>
+                        <div class="col-md-6">
+                            <h5><i class="fas fa-check-circle text-success me-2"></i> Silk & Blend</h5>
+                            <p>Luxurious silks and innovative blends for special occasion wear.</p>
+                        </div>
+                        <div class="col-md-6">
+                            <h5><i class="fas fa-check-circle text-success me-2"></i> Specialty Weaves</h5>
+                            <p>Unique patterns and textures from heritage mills worldwide.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="row">
+                        <div class="col-md-3 col-6 mb-4">
+                            <div class="fabric-swatch" style="background-color: #2c3e50;"></div>
+                            <p class="text-center small">Midnight Navy</p>
+                        </div>
+                        <div class="col-md-3 col-6 mb-4">
+                            <div class="fabric-swatch" style="background-color: #6b4423;"></div>
+                            <p class="text-center small">Chestnut Brown</p>
+                        </div>
+                        <div class="col-md-3 col-6 mb-4">
+                            <div class="fabric-swatch" style="background-color: #1a1a1a;"></div>
+                            <p class="text-center small">Charcoal Black</p>
+                        </div>
+                        <div class="col-md-3 col-6 mb-4">
+                            <div class="fabric-swatch" style="background-color: #e6e6e6;"></div>
+                            <p class="text-center small">Pearl Gray</p>
+                        </div>
+                        <div class="col-md-3 col-6 mb-4">
+                            <div class="fabric-swatch" style="background-color: #5d8aa8;"></div>
+                            <p class="text-center small">Air Force Blue</p>
+                        </div>
+                        <div class="col-md-3 col-6 mb-4">
+                            <div class="fabric-swatch" style="background-color: #954535;"></div>
+                            <p class="text-center small">Cordovan</p>
+                        </div>
+                        <div class="col-md-3 col-6 mb-4">
+                            <div class="fabric-swatch" style="background-color: #e1c699;"></div>
+                            <p class="text-center small">Sand Beige</p>
+                        </div>
+                        <div class="col-md-3 col-6 mb-4">
+                            <div class="fabric-swatch" style="background-color: #702963;"></div>
+                            <p class="text-center small">Royal Purple</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="py-5" id="gallery">
+        <div class="container py-5">
+            <h2 class="text-center section-title">Our Tailoring Gallery</h2>
+            <p class="text-center mb-5 lead">A showcase of our craftsmanship and satisfied clients</p>
+            
+            <div class="row gallery-container">
+                <div class="col-lg-4 col-md-6">
+                    <div class="gallery-item">
+                        <img src="img/suit-1.jpg" alt="Bespoke Suit" class="img-fluid">
+                        <div class="gallery-caption">
+                            <h5>Bespoke Three-Piece</h5>
+                            <p>Italian wool, hand-stitched details</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="gallery-item">
+                        <img src="img/shirt-1.jpg" alt="Custom Shirt" class="img-fluid">
+                        <div class="gallery-caption">
+                            <h5>French Cuff Shirt</h5>
+                            <p>Egyptian cotton with monogram</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="gallery-item">
+                        <img src="img/traditional-1.jpg" alt="Traditional Wear" class="img-fluid">
+                        <div class="gallery-caption">
+                            <h5>Wedding Sherwani</h5>
+                            <p>Hand-embroidered silk</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="gallery-item">
+                        <img src="img/women-1.jpg" alt="Women's Tailoring" class="img-fluid">
+                        <div class="gallery-caption">
+                            <h5>Evening Gown</h5>
+                            <p>Custom draped silk</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="gallery-item">
+                        <img src="img/accessories-1.jpg" alt="Accessories" class="img-fluid">
+                        <div class="gallery-caption">
+                            <h5>Silk Ties</h5>
+                            <p>Hand-rolled edges</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="gallery-item">
+                        <img src="img/fitting-1.jpg" alt="Tailor at Work" class="img-fluid">
+                        <div class="gallery-caption">
+                            <h5>Precision Fitting</h5>
+                            <p>Master tailor at work</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="py-5 bg-light">
+        <div class="container py-5">
+            <h2 class="text-center section-title">Our Tailoring Process</h2>
+            <p class="text-center mb-5 lead">From measurement to masterpiece - how we create your perfect garment</p>
+            
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="row">
+                        <div class="col-md-4 mb-4">
+                            <div class="text-center">
+                                <div class="bg-white rounded-circle shadow d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                                    <i class="fas fa-ruler-combined fa-2x text-primary"></i>
+                                </div>
+                                <h4>1. Consultation</h4>
+                                <p>Discuss your needs, style preferences, and select fabrics</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="text-center">
+                                <div class="bg-white rounded-circle shadow d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                                    <i class="fas fa-user-edit fa-2x text-primary"></i>
+                                </div>
+                                <h4>2. Measurements</h4>
+                                <p>Precise 25-point measurement for perfect fit</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="text-center">
+                                <div class="bg-white rounded-circle shadow d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                                    <i class="fas fa-cut fa-2x text-primary"></i>
+                                </div>
+                                <h4>3. Cutting</h4>
+                                <p>Master cutter creates your unique pattern</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="text-center">
+                                <div class="bg-white rounded-circle shadow d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                                    <i class="fas fa-seedling fa-2x text-primary"></i>
+                                </div>
+                                <h4>4. Basting</h4>
+                                <p>Temporary stitching for initial fitting</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="text-center">
+                                <div class="bg-white rounded-circle shadow d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                                    <i class="fas fa-magic fa-2x text-primary"></i>
+                                </div>
+                                <h4>5. Fitting</h4>
+                                <p>Adjustments made for perfect fit</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="text-center">
+                                <div class="bg-white rounded-circle shadow d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                                    <i class="fas fa-tshirt fa-2x text-primary"></i>
+                                </div>
+                                <h4>6. Final Garment</h4>
+                                <p>Hand-finished masterpiece delivered</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-5">
+        <div class="container py-5">
+            <h2 class="text-center section-title">Client Testimonials</h2>
+            <p class="text-center mb-5 lead">What our discerning clients say about our work</p>
+            
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="card h-100 border-0 shadow">
+                        <div class="card-body">
+                            <div class="mb-4">
+                                <i class="fas fa-quote-left fa-2x text-secondary"></i>
+                            </div>
+                            <p class="mb-4">"The suit Master Tailor made for my wedding was perfection. The fit was impeccable and the attention to detail was beyond anything I've experienced before."</p>
+                            <div class="d-flex align-items-center">
+                                <img src="img/client-1.jpg" alt="Client" class="rounded-circle me-3" width="60">
+                                <div>
+                                    <h5 class="mb-0">Ahmed Khan</h5>
+                                    <small class="text-muted">Business Executive</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="card h-100 border-0 shadow">
+                        <div class="card-body">
+                            <div class="mb-4">
+                                <i class="fas fa-quote-left fa-2x text-secondary"></i>
+                            </div>
+                            <p class="mb-4">"I've been a client for 15 years and wouldn't go anywhere else. The quality and fit of their shirts is unmatched. Worth every penny."</p>
+                            <div class="d-flex align-items-center">
+                                <img src="img/client-2.jpg" alt="Client" class="rounded-circle me-3" width="60">
+                                <div>
+                                    <h5 class="mb-0">Fatima Ali</h5>
+                                    <small class="text-muted">Lawyer</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="card h-100 border-0 shadow">
+                        <div class="card-body">
+                            <div class="mb-4">
+                                <i class="fas fa-quote-left fa-2x text-secondary"></i>
+                            </div>
+                            <p class="mb-4">"The traditional sherwani they created for my son's wedding was breathtaking. The embroidery work was exquisite and the fit was perfect."</p>
+                            <div class="d-flex align-items-center">
+                                <img src="img/client-3.jpg" alt="Client" class="rounded-circle me-3" width="60">
+                                <div>
+                                    <h5 class="mb-0">Abdul Rehman</h5>
+                                    <small class="text-muted">Retired Banker</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-5 bg-light" id="contact">
+        <div class="container py-5">
+            <h2 class="text-center section-title">Quick Links</h2>
+            <p class="text-center mb-5 lead">Access our services and resources with these convenient links</p>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="quick-links text-center">
+                        <a href="https://forms.google.com/your-form-link" class="btn btn-primary btn-lg mb-3" target="_blank">
+                            <i class="fas fa-envelope me-2"></i> Contact Us via Google Form
+                        </a>
+                        <a href="https://forms.google.com/registration-form-link" class="btn btn-outline-primary btn-lg mb-3" target="_blank">
+                            <i class="fas fa-user-plus me-2"></i> New Customer Registration
+                        </a>
+                        <a href="https://forms.google.com/measurements-form-link" class="btn btn-outline-primary btn-lg mb-3" target="_blank">
+                            <i class="fas fa-ruler-combined me-2"></i> Submit Measurements
+                        </a>
+                        <a href="https://forms.google.com/booking-form-link" class="btn btn-outline-primary btn-lg mb-3" target="_blank">
+                            <i class="fas fa-calendar-check me-2"></i> Online Booking
+                        </a>
+                        <a href="https://forms.google.com/feedback-form-link" class="btn btn-outline-primary btn-lg mb-3" target="_blank">
+                            <i class="fas fa-comment-alt me-2"></i> Customer Feedback
+                        </a>
+                        <a href="https://your-online-store.com" class="btn btn-outline-primary btn-lg mb-3" target="_blank">
+                            <i class="fas fa-shopping-cart me-2"></i> Online Shopping
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13610.49685092928!2d74.29154326977538!3d31.481759399999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391903cc00000000%3A0x123456789abcde!2sMaster%20Tailor!5e0!3m2!1sen!2s!4v1234567890123!5m2!1sen!2s" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <img src="img/logo-white.png" alt="Master Tailor" height="40" class="mb-3">
+                    <p>Master Tailor has been creating bespoke garments with precision craftsmanship since 1990. Each piece is individually tailored to perfection.</p>
+                    <div class="social-icons mt-4">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-white mb-4">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#home">Home</a></li>
+                        <li class="mb-2"><a href="#about">About</a></li>
+                        <li class="mb-2"><a href="#services">Services</a></li>
+                        <li class="mb-2"><a href="#fabrics">Fabrics</a></li>
+                        <li class="mb-2"><a href="#gallery">Gallery</a></li>
+                        <li class="mb-2"><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-white mb-4">Services</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#">Bespoke Suits</a></li>
+                        <li class="mb-2"><a href="#">Custom Shirts</a></li>
+                        <li class="mb-2"><a href="#">Traditional Wear</a></li>
+                        <li class="mb-2"><a href="#">Women's Tailoring</a></li>
+                        <li class="mb-2"><a href="#">Alterations</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h5 class="text-white mb-4">Newsletter</h5>
+                    <p>Subscribe for seasonal fabric collections and tailoring tips.</p>
+                    <form class="mt-3">
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="Your Email" aria-label="Your Email">
+                            <button class="btn btn-primary" type="submit">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <hr class="mt-5 mb-4" style="border-color: rgba(255,255,255,0.1)">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2023 Master Tailor. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="mb-0">Crafted with precision since 1990</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+
+    <!-- Gallery Modal -->
+    <div class="modal fade" id="galleryModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content bg-transparent border-0">
+                <div class="modal-header border-0">
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <img id="modalImage" class="img-fluid" src="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/2.7.1/lightgallery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    
+    <!-- Main JavaScript -->
+    <script>
+        // Initialize WOW.js for animations
+        new WOW().init();
+        
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const navbarCollapse = document.querySelector('.navbar-collapse');
+                    if (navbarCollapse.classList.contains('show')) {
+                        const bsCollapse = new bootstrap.Collapse(navbarCollapse);
+                        bsCollapse.hide();
+                    }
+                }
+            });
+        });
+        
+        // Back to top button
+        const backToTopButton = document.querySelector('.back-to-top');
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('active');
+            } else {
+                backToTopButton.classList.remove('active');
+            }
+        });
+        
+        // Gallery modal functionality
+        function currentSlide(n) {
+            const images = [
+                'img/suit-1.jpg',
+                'img/shirt-1.jpg',
+                'img/traditional-1.jpg',
+                'img/women-1.jpg'
+            ];
+            document.getElementById('modalImage').src = images[n-1];
+        }
+        
+        // Fabric swatch selection
+        document.querySelectorAll('.fabric-swatch').forEach(swatch => {
+            swatch.addEventListener('click', function() {
+                document.querySelectorAll('.fabric-swatch').forEach(s => s.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+        
+        // Initialize lightGallery
+        lightGallery(document.querySelector('.gallery-container'), {
+            selector: '.gallery-item',
+            download: false,
+            counter: false
+        });
+    </script>
+</body>
+</html>
