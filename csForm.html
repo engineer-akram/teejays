@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <title>Developed by: engr akram</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.4/pdfmake.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.4/vfs_fonts.js"></script>
+  <style>
+    body { font-family: "Inter", sans-serif; text-align: center; margin: 20px; background-color: #eef2f7; }
+    h1 { color: #333; font-weight: 600; font-size: 2.56vw; }
+    .container { width: 90%; max-width: 1200px; margin: auto; padding: 20px; background: white; border-radius: 10px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15); transition: 0.3s; overflow-x: auto; }
+    .container:hover { box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2); }
+    .table-container { max-height: 500px; overflow-y: auto; border: 1px solid #ddd; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; table-layout: auto; }
+    th, td { padding: 10px; border-bottom: 1px solid #ddd; text-align: left; font-size: 1.2vw; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    thead th { background-color: #007bff; color: white; position: sticky; top: 0; z-index: 2; }
+    tr:nth-child(even) { background-color: #f8f9fc; }
+    tr:hover { background-color: #dde6f1; transition: 0.3s; }
+    .loading { font-size: 1.5vw; font-weight: 500; color: #007bff; margin-top: 20px; }
+    input { width: 100%; padding: 10px; margin-bottom: 10px; font-size: 1.2vw; }
+    .btn-group button { margin: 5px; font-size: 1.2vw; }
+  </style>
+  <script>
+    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwoZzlkNue5USW9KUK7YC6Vv_oeIFI0B11UyLZubzm3tflp5PkHseoaSMo1VQJ-oRmL/exec";
+    let tableData = [];
+    async function loadTable() {
+      try {
+        let response = await fetch(WEB_APP_URL);
+        let data = await response.json();
+        tableData = data;
+        renderTable(data);
+      } catch (error) {
+        console.error("Error loading data:", error);
+        document.getElementById("table-container").innerHTML = "<p style='color: red;'>Failed to load data. Please try again.</p>";
+      }
+    }
+    function renderTable(data) {
+      const tableContainer = document.getElementById("table-container");
+      let tableHTML = "<input type='text' id='filterInput' onkeyup='filterTable()' placeholder='Search...' style='font-size: 1.2vw;'>";
+      tableHTML += "<div class='table-container'><table><thead><tr>";
+      data[0].forEach(header => { tableHTML += `<th>${header}</th>`; });
+      tableHTML += "</tr></thead><tbody id='tableBody'>";
+      for (let i = 1; i < data.length; i++) {
+        tableHTML += "<tr>";
+        data[i].forEach(cell => { tableHTML += `<td title='${cell}'>${cell}</td>`; });
+        tableHTML += "</tr>";
+      }
+      tableHTML += "</tbody></table></div>";
+      tableHTML += `<div class='btn-group'>
+                      <button onclick='downloadCSV()' style='font-size: 1.2vw;'>Download CSV</button>
+                      <button onclick='downloadExcel()' style='font-size: 1.2vw;'>Download Excel</button>
+                      <button onclick='downloadPDF()' style='font-size: 1.2vw;'>Download PDF</button>
+                    </div>`;
+      tableContainer.innerHTML = tableHTML;
+    }
+    function filterTable() {
+      let input = document.getElementById("filterInput").value.toLowerCase();
+      let rows = document.getElementById("tableBody").getElementsByTagName("tr");
+      for (let row of rows) {
+        let text = row.textContent.toLowerCase();
+        row.style.display = text.includes(input) ? "" : "none";
+      }
+    }
+    function downloadCSV() {
+      let csv = tableData.map(row => row.join(",")).join("\n");
+      let blob = new Blob([csv], { type: "text/csv" });
+      let a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "customer_data.csv";
+      a.click();
+    }
+    function downloadExcel() {
+      let wb = XLSX.utils.book_new();
+      let ws = XLSX.utils.aoa_to_sheet(tableData);
+      XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
+      XLSX.writeFile(wb, "customer_data.xlsx");
+    }
+    function downloadPDF() {
+      let docDefinition = { content: [{ table: { body: tableData } }] };
+      pdfMake.createPdf(docDefinition).download("customer_data.pdf");
+    }
+    window.onload = loadTable;
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>JEEJAYS</h1>
+    <div id="table-container" class="loading">Loading customers...</div>
+  </div>
+</body>
+</html>
